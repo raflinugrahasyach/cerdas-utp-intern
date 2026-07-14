@@ -1,0 +1,387 @@
+[
+    {
+        "users_concurrency": 1,
+        "extractions": [
+            {
+                "file": "page_1.html",
+                "status": "Success",
+                "tps": 2.341934998734689,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\nhtml = \"\"\"<your html here>\"\"\"  # replace this line with your actual HTML string\n\nsoup = BeautifulSoup(html, \"lxml\")\nproducts = []\nfor article in soup.find_all(\"article\", class_=\"product_pod\"):\n    product_name = article.h3.a[\"title\"]\n    price = article.select(\".price_color\")[0].get_text()\n    products.append({'product_name': product_name, 'price': price})\n\nprint(json.dumps(products))",
+                "time_sec": 246.4
+            },
+            {
+                "file": "page_4.html",
+                "status": "Success",
+                "tps": 2.3251935914779387,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\nhtml = \"\"\"<your html here>\"\"\"  # replace this line with your actual HTML string\n\nsoup = BeautifulSoup(html, \"lxml\")\nproducts = []\nfor article in soup.find_all('article', class_='product_pod'):\n    product_name = article.h3.a['title']\n    price = article.select_one('.price_color').get_text()\n    products.append({\"product_name\": product_name, \"price\": price})\n\nprint(json.dumps(products))",
+                "time_sec": 211.86
+            },
+            {
+                "file": "page_9.html",
+                "status": "Success",
+                "tps": 2.3162931760491783,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\n# Your HTML string here\nhtml = \"\"\"Your HTML String Here\"\"\"\n\nsoup = BeautifulSoup(html, 'lxml')\nproducts = []\nfor article in soup.find_all('article', class_='product_pod'):\n    product_name = article.h3.a['title']\n    price = article.select('.price_color')[0].get_text()\n    products.append({\"product_name\": product_name, \"price\": price})\n\nprint(json.dumps(products))",
+                "time_sec": 203.56
+            },
+            {
+                "file": "page_7.html",
+                "status": "Success",
+                "tps": 2.33314624614964,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\nhtml = \"\"\"<your html here>\"\"\"  # replace this line with your actual HTML string\n\nsoup = BeautifulSoup(html, \"lxml\")\nproducts = []\nfor article in soup.find_all(\"article\", class_=\"product_pod\"):\n    product_name = article.h3.a[\"title\"]\n    price = article.select_one(\".price_color\").get_text()\n    products.append({'product_name': product_name, 'price': price})\n\nprint(json.dumps(products))",
+                "time_sec": 211.89
+            },
+            {
+                "file": "page_3.html",
+                "status": "Success",
+                "tps": 2.3031546540666934,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\nhtml = \"\"\"Your HTML goes here\"\"\"\n\nsoup = BeautifulSoup(html, 'lxml')  # Parse the HTML\nproducts = soup.find_all('article', class_='product_pod')  # Find all product elements\n\ndata = []\nfor product in products:\n    name = product.h3.a['title']  # Extract product name\n    price = product.select('.price_color')[0].get_text()  # Extract product price\n    data.append({'product_name': name, 'price': price})\n\nprint(json.dumps(data))  # Print the JSON array of objects",
+                "time_sec": 232.13
+            },
+            {
+                "file": "page_2.html",
+                "status": "Success",
+                "tps": 2.3165708906604596,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\n# Your HTML string here\nhtml = \"\"\"Your HTML String Here\"\"\"\n\nsoup = BeautifulSoup(html, 'lxml')\nproducts = []\nfor article in soup.find_all('article', class_='product_pod'):\n    product_name = article.h3.a['title']\n    price = article.select('.price_color')[0].get_text()\n    products.append({\"product_name\": product_name, \"price\": price})\n\nprint(json.dumps(products))",
+                "time_sec": 196.02
+            },
+            {
+                "file": "page_6.html",
+                "status": "Success",
+                "tps": 2.269650909334904,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "Immunity: How Elie Metchnikoff Changed the Course of Modern Medicine",
+                        "price": "\u00a357.36"
+                    },
+                    {
+                        "product_name": "I Hate Fairyland, Vol. 1: Madly Ever After (I Hate Fairyland (Compilations) #1-5)",
+                        "price": "\u00a329.17"
+                    },
+                    {
+                        "product_name": "I am a Hero Omnibus Volume 1",
+                        "price": "\u00a354.63"
+                    },
+                    {
+                        "product_name": "How to Be Miserable: 40 Strategies You Already Use",
+                        "price": "\u00a346.03"
+                    },
+                    {
+                        "product_name": "Her Backup Boyfriend (The Sorensen Family #1)",
+                        "price": "\u00a333.97"
+                    },
+                    {
+                        "product_name": "Giant Days, Vol. 2 (Giant Days #5-8)",
+                        "price": "\u00a322.11"
+                    },
+                    {
+                        "product_name": "Forever and Forever: The Courtship of Henry Longfellow and Fanny Appleton",
+                        "price": "\u00a329.69"
+                    },
+                    {
+                        "product_name": "First and First (Five Boroughs #3)",
+                        "price": "\u00a315.97"
+                    },
+                    {
+                        "product_name": "Fifty Shades Darker (Fifty Shades #2)",
+                        "price": "\u00a321.96"
+                    },
+                    {
+                        "product_name": "Everydata: The Misinformation Hidden in the Little Data You Consume Every Day",
+                        "price": "\u00a354.35"
+                    },
+                    {
+                        "product_name": "Don't Be a Jerk: And Other Practical Advice from Dogen, Japan's Greatest Zen Master",
+                        "price": "\u00a337.97"
+                    },
+                    {
+                        "product_name": "Danganronpa Volume 1",
+                        "price": "\u00a351.99"
+                    },
+                    {
+                        "product_name": "Crown of Midnight (Throne of Glass #2)",
+                        "price": "\u00a343.29"
+                    },
+                    {
+                        "product_name": "Codename Baboushka, Volume 1: The Conclave of Death",
+                        "price": "\u00a336.72"
+                    },
+                    {
+                        "product_name": "Camp Midnight",
+                        "price": "\u00a317.08"
+                    },
+                    {
+                        "product_name": "Call the Nurse: True Stories of a Country Nurse on a Scottish Isle",
+                        "price": "\u00a329.14"
+                    },
+                    {
+                        "product_name": "Burning",
+                        "price": "\u00a328.81"
+                    },
+                    {
+                        "product_name": "Bossypants",
+                        "price": "\u00a349.46"
+                    }
+                ],
+                "time_sec": 433.38
+            },
+            {
+                "file": "page_8.html",
+                "status": "Success",
+                "tps": 2.306649176121172,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\n# Your HTML string here\nhtml = \"\"\"Your HTML String\"\"\"\n\nsoup = BeautifulSoup(html, 'lxml')\nproducts = []\nfor article in soup.find_all('article', class_='product_pod'):\n    product_name = article.h3.a['title']\n    price = article.select_one('.price_color').get_text()\n    products.append({\"product_name\": product_name, \"price\": price})\n\nprint(json.dumps(products))",
+                "time_sec": 201.61
+            },
+            {
+                "file": "page_10.html",
+                "status": "Success",
+                "tps": 2.303717573263654,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "Modern Romance",
+                        "price": "\u00a328.26"
+                    },
+                    {
+                        "product_name": "Miss Peregrine\u2019s Home for Peculiar Children (Miss Peregrine\u2019s Peculiar Children #1)",
+                        "price": "\u00a310.76"
+                    },
+                    {
+                        "product_name": "Louisa: The Extraordinary Life of Mrs. Adams",
+                        "price": "\u00a316.85"
+                    },
+                    {
+                        "product_name": "Little Red",
+                        "price": "\u00a313.47"
+                    },
+                    {
+                        "product_name": "Library of Souls (Miss Peregrine\u2019s Peculiar Children #3)",
+                        "price": "\u00a348.56"
+                    },
+                    {
+                        "product_name": "Large Print Heart of the Pride",
+                        "price": "\u00a319.15"
+                    },
+                    {
+                        "product_name": "I Had a Nice Time And Other Lies...: How to find love &amp; sh*t like that",
+                        "price": "\u00a357.36"
+                    },
+                    {
+                        "product_name": "Hollow City (Miss Peregrine\u2019s Peculiar Children #2)",
+                        "price": "\u00a342.98"
+                    },
+                    {
+                        "product_name": "Grumbles",
+                        "price": "\u00a322.16"
+                    },
+                    {
+                        "product_name": "Full Moon over Noah\u2019s Ark: An Odyssey to Mount Ararat and Beyond",
+                        "price": "\u00a349.43"
+                    },
+                    {
+                        "product_name": "Frostbite (Vampire Academy #2)",
+                        "price": "\u00a329.99"
+                    },
+                    {
+                        "product_name": "Follow You Home",
+                        "price": "\u00a321.36"
+                    },
+                    {
+                        "product_name": "First Steps for New Christians (Print Edition)",
+                        "price": "\u00a329.00"
+                    },
+                    {
+                        "product_name": "Finders Keepers (Bill Hodges Trilogy #2)",
+                        "price": "\u00a353.53"
+                    },
+                    {
+                        "product_name": "Fables, Vol. 1: Legends in Exile (Fables #1)",
+                        "price": "\u00a341.62"
+                    },
+                    {
+                        "product_name": "Eureka Trivia 6.0",
+                        "price": "\u00a354.59"
+                    },
+                    {
+                        "product_name": "Drive: The Surprising Truth About What Motivates Us",
+                        "price": "\u00a334.95"
+                    },
+                    {
+                        "product_name": "Done Rubbed Out (Reightman & Bailey #1)",
+                        "price": "\u00a337.72"
+                    },
+                    {
+                        "product_name": "Doing It Over (Most Likely To #1)",
+                        "price": "\u00a345.00"
+                    }
+                ],
+                "time_sec": 427.92
+            },
+            {
+                "file": "page_5.html",
+                "status": "Success",
+                "tps": 2.2772521681439355,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)",
+                        "price": "\u00a313.61"
+                    },
+                    {
+                        "product_name": "Princess Between Worlds (Wide-Awake Princess #5)",
+                        "price": "\u00a313.34"
+                    },
+                    {
+                        "product_name": "Pop Gun War, Volume 1: Gift",
+                        "price": "\u00a318.97"
+                    },
+                    {
+                        "product_name": "Political Suicide: Missteps, Peccadilloes, Bad Calls, Backroom Hijinx, Sordid Pasts, Rotten Breaks, and Just Plain Dumb Mistakes in the Annals of American Politics",
+                        "price": "\u00a336.28"
+                    },
+                    {
+                        "product_name": "Patience",
+                        "price": "\u00a310.16"
+                    },
+                    {
+                        "product_name": "Outcast, Vol. 1: A Darkness Surrounds Him (Outcast #1)",
+                        "price": "\u00a315.44"
+                    },
+                    {
+                        "product_name": "orange: The Complete Collection 1 (orange: The Complete Collection #1)",
+                        "price": "\u00a348.41"
+                    },
+                    {
+                        "product_name": "Online Marketing for Busy Authors: A Step-By-Step Guide",
+                        "price": "\u00a346.35"
+                    },
+                    {
+                        "product_name": "On a Midnight Clear",
+                        "price": "\u00a314.07"
+                    },
+                    {
+                        "product_name": "Obsidian (Lux #1)",
+                        "price": "\u00a314.86"
+                    },
+                    {
+                        "product_name": "My Paris Kitchen: Recipes and Stories",
+                        "price": "\u00a333.37"
+                    },
+                    {
+                        "product_name": "Masks and Shadows",
+                        "price": "\u00a356.40"
+                    },
+                    {
+                        "product_name": "Mama Tried: Traditional Italian Cooking for the Screwed, Crude, Vegan, and Tattooed",
+                        "price": "\u00a314.02"
+                    },
+                    {
+                        "product_name": "Lumberjanes, Vol. 2: Friendship to the Max (Lumberjanes #5-8)",
+                        "price": "\u00a346.91"
+                    },
+                    {
+                        "product_name": "Lumberjanes, Vol. 1: Beware the Kitten Holy (Lumberjanes #1-4)",
+                        "price": "\u00a345.61"
+                    },
+                    {
+                        "product_name": "Lumberjanes Vol. 3: A Terrible Plan (Lumberjanes #9-12)",
+                        "price": "\u00a319.92"
+                    },
+                    {
+                        "product_name": "Layered: Baking, Building, and Styling Spectacular Cakes",
+                        "price": "\u00a340.11"
+                    },
+                    {
+                        "product_name": "Judo: Seven Steps to Black Belt (an Introductory Guide for Beginners)",
+                        "price": "\u00a353.90"
+                    }
+                ],
+                "time_sec": 464.25
+            }
+        ]
+    },
+    {
+        "users_concurrency": 4,
+        "extractions": [
+            {
+                "file": "page_4.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_1.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_7.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_9.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_8.html",
+                "status": "Success",
+                "tps": 0,
+                "valid_json": false,
+                "data": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+                "time_sec": 480.09
+            },
+            {
+                "file": "page_3.html",
+                "status": "Success",
+                "tps": 0.4811387109807264,
+                "valid_json": false,
+                "data": "I'm sorry, but the provided HTML is incomplete and it seems like there are some missing closing tags. I can help you with a complete HTML snippet. However, please provide a complete HTML for accurate results.",
+                "time_sec": 534.74
+            },
+            {
+                "file": "page_2.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_6.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_10.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_5.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            }
+        ]
+    }
+]

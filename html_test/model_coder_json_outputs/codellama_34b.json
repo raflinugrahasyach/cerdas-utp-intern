@@ -1,0 +1,433 @@
+[
+    {
+        "users_concurrency": 1,
+        "extractions": [
+            {
+                "file": "page_1.html",
+                "status": "Success",
+                "tps": 3.6920331723473856,
+                "valid_json": false,
+                "data": "[PYTHON]\ndef get_product_name_and_price(soup):\n    product_name = soup.find(\"h1\").text.strip()\n    price = soup.find(\"p\", {\"class\": \"price_color\"}).text\n    return [product_name, price]\n[/PYTHON]\n[TESTS]\n# Test case 1:\nassert get_product_name_and_price(soup) == ['A Light in the Attic', '\u00a351.77']\n# Test case 2:\nassert get_product_name_and_price(soup) == ['Tipping the Velvet', '\u00a353.74']\n# Test case 3:\nassert get_product_name_and_price(soup) == ['Soumission', '\u00a350.10']\n# Test case 4:\nassert get_product_name_and_price(soup) == ['Sharp Objects', '\u00a347.82']\n# Test case 5:\nassert get_product_name_and_price(soup) == ['Sapiens: A Brief History of Humankind', '\u00a354.23']\n[/TESTS]",
+                "time_sec": 185.67
+            },
+            {
+                "file": "page_4.html",
+                "status": "Success",
+                "tps": 3.7763960165657497,
+                "valid_json": false,
+                "data": "[PYTHON]\nfrom bs4 import BeautifulSoup\nimport requests\nimport json\n\ndef get_product_info(html):\n    soup = BeautifulSoup(html, 'lxml')\n    products = []\n    for article in soup.find_all('article', {'class': 'product_pod'}):\n        product = {}\n        product['name'] = article.h3.a.text.strip()\n        product['price'] = float(article.select('.price_color')[0].text[1:])\n        products.append(product)\n    return products\n\ndef get_products(url):\n    response = requests.get(url)\n    if response.status_code == 200:\n        html = response.content\n        products = get_product_info(html)\n        return products\n    else:\n        print(\"Request failed with status code\", response.status_code)\n        return None\n\ndef main():\n    url = \"https://books.toscrape.com/catalogue/category/books_1/page-4.html\"\n    products = get_products(url)\n    print(json.dumps(products, indent=4))\n\nif __name__ == '__main__':\n    main()\n[/PYTHON]",
+                "time_sec": 151.62
+            },
+            {
+                "file": "page_9.html",
+                "status": "Success",
+                "tps": 3.940857287831858,
+                "valid_json": false,
+                "data": "[PYTHON]\ndef get_product_name_and_price(soup):\n    product_name = soup.find('h1').text.strip()\n    price = soup.find('p', {'class': 'price'}).text.strip()\n    return [product_name, price]\n[/PYTHON]\n[TESTS]\n# Test case 1:\nassert get_product_name_and_price(soup) == ['Hardcover', '\u00a350.82']\n# Test case 2:\nassert get_product_name_and_price(soup) == ['Paperback', '\u00a337.99']\n# Test case 3:\nassert get_product_name_and_price(soup) == ['Audio CD', '\u00a325.61']\n# Test case 4:\nassert get_product_name_and_price(soup) == ['Digital Copy', '\u00a319.99']\n[/TESTS]",
+                "time_sec": 131.32
+            },
+            {
+                "file": "page_7.html",
+                "status": "Success",
+                "tps": 3.869598364531216,
+                "valid_json": false,
+                "data": "[PYTHON]\ndef extract_products(html):\n    products = []\n    soup = BeautifulSoup(html, 'html.parser')\n    product_list = soup.find('ol', {'class': 'row'})\n    for li in product_list:\n        product = {}\n        image_container = li.find('div', {'class': 'image_container'})\n        img = image_container.find('img')\n        product['image'] = img.attrs['src'] if img else None\n        product_details = li.find('div', {'class': 'product_details'})\n        h3 = product_details.find('h3').text.strip()\n        product['name'] = h3\n        price = product_details.find('p', {'class': 'price_color'}).text.strip()\n        product['price'] = float(price[1:])\n        products.append(product)\n    return products\n[/PYTHON]\n\n[TESTS]\n# Test case 1:\nassert extract_products(html=PAGE_7_HTML) == [{'image': 'https://books.toscrape.com/catalogue/algorithms-to-live-by-the-computer-science-of-human-decisions_880/index.html', 'name': 'Algorithms to Live By: The Computer Science of Human Decisions', 'price': 30.81}, {'image': 'https://books.toscrape.com/catalogue/a-world-of-flavor-your-gluten-free-passport_879/index.html', 'name': 'A World of Flavor: Your Gluten Free Passport', 'price': 42.95}, {'image': 'https://books.toscrape.com/catalogue/a-piece-of-sky-a-grain-of-rice-a-memoir-in-four-meditations_878/index.html', 'name': 'A Piece of Sky, a Grain of Rice: A Memoir in Four Meditations', 'price': 56.76}, {'image': 'https://books.toscrape.com/catalogue/a-murder-in-time_877/index.html', 'name': 'A Murder in Time', 'price': 16.64}, {'image': 'https://books.toscrape.com/catalogue/a-flight-of-arrows-the-pathfinders-2_876/index.html', 'name': 'A Flight of Arrows (The Pathfinders #2)', 'price': 55.53}, {'image': 'https://books.toscrape.com/catalogue/a-fierce-and-subtle-poison_875/index.html', 'name': 'A Fierce and Subtle Poison', 'price': 28.13}, {'image': 'https://books.toscrape.com/catalogue/a-court-of-thorns-and-roses-a-court-of-thorns-and-roses-1_874/index.html', 'name': 'A Court of Thorns and Roses (A Court of Thorns and Roses #1)', 'price': 52.37}, {'image': 'https://books.toscrape.com/catalogue/unqualified-how-god-uses-broken-people-to-do-big-things_873/index.html', 'name': '(Un)Qualified: How God Uses Broken People to Do Big Things', 'price': 54.0}, {'image': 'https://books.toscrape.com/catalogue/you-are-what-you-love-the-spiritual-power-of-habit_872/index.html', 'name': 'You Are What You Love: The Spiritual Power of Habit', 'price': 21.87}, {'image': 'https://books.toscrape.com/catalogue/william-shakespeares-star-wars-verily-a-new-hope-william-shakespeares-star-wars-4_871/index.html', 'name': 'William Shakespeare\u2019s Star Wars: Verily, A New Hope (William Shakespeare\u2019s Star Wars #4)', 'price': 43.3}, {'image': 'https://books.toscrape.com/catalogue/tuesday-nights-in-1980_870/index.html', 'name': 'Tuesday Nights in 1980', 'price': 21.04}, {'image': 'https://books.toscrape.com/catalogue/tracing-numbers-on-a-train_869/index.html', 'name': 'Tracing Numbers on a Train', 'price': 41.6}, {'image': 'https://books.toscrape.com/catalogue/throne-of-glass-throne-of-glass-1_868/index.html', 'name': 'Throne of Glass (Throne of Glass #1)', 'price': 35.07}, {'image': 'https://books.toscrape.com/catalogue/thomas-jefferson-and-the-tripoli-pirates-the-forgotten-war-that-changed-american-history_867/index.html', 'name': 'Thomas Jefferson and the Tripoli Pirates: The Forgotten War That Changed American History', 'price': 59.64}, {'image': 'https://books.toscrape.com/catalogue/thirteen-reasons-why_866/index.html', 'name': 'Thirteen Reasons Why', 'price': 52.72}, {'image': 'https://books.toscrape.com/catalogue/the-white-cat-and-the-monk-a-retelling-of-the-poem-pangur-ban_865/index.html', 'name': 'The White Cat and the Monk: A Retelling of the Poem \u201cPangur B\u00e1n\u201d', 'price': 58.08}, {'image': 'https://books.toscrape.com/catalogue/the-wedding-dress_864/index.html', 'name': 'The Wedding Dress', 'price': 24.12}, {'image': 'https://books.toscrape.com/catalogue/the-vacationers_863/index.html', 'name': 'The Vacationers', 'price': 42.15}]\n[/TESTS]",
+                "time_sec": 490.55
+            },
+            {
+                "file": "page_3.html",
+                "status": "Success",
+                "tps": 3.848952692702072,
+                "valid_json": false,
+                "data": "[PYTHON]\ndef extract_products(html):\n    soup = BeautifulSoup(html, 'html.parser')\n    products = []\n    for li in soup.findAll('li', {'class': 'col-xs-6 col-sm-4 col-md-3 col-lg-3'}):\n        product_name = li.find('h3').text.strip()\n        price = li.find('p', {'class': 'price_color'}).text\n        products.append({'product_name': product_name, 'price': price})\n    return products\n[/PYTHON]\n\n[TESTS]\n# Test case 1:\nassert extract_products(html) == [{'product_name': 'Slow States of Collapse: Poems', 'price': '\u00a357.31'}, {'product_name': 'Reasons to Stay Alive', 'price': '\u00a326.41'}, {'product_name': 'Private Paris (Private #10)', 'price': '\u00a347.61'}, {'product_name': '#HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.', 'price': '\u00a323.11'}, {'product_name': 'Without Borders (Wanderlove #1)', 'price': '\u00a345.07'}, {'product_name': 'When We Collided', 'price': '\u00a331.77'}, {'product_name': 'We Love You, Charlie Freeman', 'price': '\u00a350.27'}, {'product_name': 'Unseen City: The Majesty of Pigeons, the Discreet Charm of Snails & Other Wonders of the Urban Wilderness', 'price': '\u00a314.27'}, {'product_name': 'Unicorn Tracks', 'price': '\u00a318.78'}, {'product_name': 'Unbound: How Eight Technologies Made Us Human, Transformed Society, and Brought Our World to the Brink', 'price': '\u00a325.52'}, {'product_name': 'Tsubasa: WoRLD CHRoNiCLE 2 (Tsubasa WoRLD CHRoNiCLE #2)', 'price': '\u00a316.28'}, {'product_name': 'Throwing Rocks at the Google Bus: How Growth Became the Enemy of Prosperity', 'price': '\u00a331.12'}, {'product_name': 'This One Summer', 'price': '\u00a319.49'}, {'product_name': 'Thirst', 'price': '\u00a317.27'}, {'product_name': 'The Torch Is Passed: A Harding Family Story', 'price': '\u00a319.09'}, {'product_name': 'The Secret of Dreadwillow Carse', 'price': '\u00a356.13'}, {'product_name': 'The Pioneer Woman Cooks: Dinnertime: Comfort Classics, Freezer Food, 16-Minute Meals, and Other Delicious Ways to Solve Supper!', 'price': '\u00a356.41'}]\n[/TESTS]",
+                "time_sec": 262.68
+            },
+            {
+                "file": "page_2.html",
+                "status": "Success",
+                "tps": 3.9219714173110467,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "In Her Wake",
+                        "price": "\u00a312.84"
+                    },
+                    {
+                        "product_name": "How Music Works",
+                        "price": "\u00a337.32"
+                    },
+                    {
+                        "product_name": "Foolproof Preserving: A Guide to Small Batch Jams, Jellies, Pickles, Condiments, and More: A Foolproof Guide to Making Small Batch Jams, Jellies, Pickles, Condiments, and More",
+                        "price": "\u00a330.52"
+                    },
+                    {
+                        "product_name": "Chase Me (Paris Nights #2)",
+                        "price": "\u00a325.27"
+                    },
+                    {
+                        "product_name": "Black Dust",
+                        "price": "\u00a334.53"
+                    },
+                    {
+                        "product_name": "Birdsong: A Story in Pictures",
+                        "price": "\u00a354.64"
+                    },
+                    {
+                        "product_name": "America's Cradle of Quarterbacks: Western Pennsylvania's Football Factory from Johnny Unitas to Joe Montana",
+                        "price": "\u00a322.50"
+                    },
+                    {
+                        "product_name": "Aladdin and His Wonderful Lamp",
+                        "price": "\u00a353.13"
+                    },
+                    {
+                        "product_name": "Worlds Elsewhere: Journeys Around Shakespeare\u2019s Globe",
+                        "price": "\u00a340.30"
+                    },
+                    {
+                        "product_name": "Wall and Piece",
+                        "price": "\u00a344.18"
+                    },
+                    {
+                        "product_name": "The Four Agreements: A Practical Guide to Personal Freedom",
+                        "price": "\u00a317.66"
+                    },
+                    {
+                        "product_name": "The Five Love Languages: How to Express Heartfelt Commitment to Your Mate",
+                        "price": "\u00a331.05"
+                    },
+                    {
+                        "product_name": "The Elephant Tree",
+                        "price": "\u00a323.82"
+                    },
+                    {
+                        "product_name": "The Bear and the Piano",
+                        "price": "\u00a336.89"
+                    },
+                    {
+                        "product_name": "Sophie's World",
+                        "price": "\u00a315.94"
+                    },
+                    {
+                        "product_name": "Penny Maybe",
+                        "price": "\u00a333.29"
+                    },
+                    {
+                        "product_name": "Maude (1883-1993):She Grew Up with the country",
+                        "price": "\u00a318.02"
+                    },
+                    {
+                        "product_name": "In a Dark, Dark Wood",
+                        "price": "\u00a319.63"
+                    }
+                ],
+                "time_sec": 258.46
+            },
+            {
+                "file": "page_6.html",
+                "status": "Success",
+                "tps": 3.9286629855121724,
+                "valid_json": false,
+                "data": "f = open(\"example.txt\", \"r\")\ndata = f.read()\nf.close()",
+                "time_sec": 214.9
+            },
+            {
+                "file": "page_8.html",
+                "status": "Success",
+                "tps": 3.9208880529092935,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "The Shadow Hero (The Shadow Hero)",
+                        "price": "\u00a333.14"
+                    },
+                    {
+                        "product_name": "The Secret (The Secret #1)",
+                        "price": "\u00a327.37"
+                    },
+                    {
+                        "product_name": "The Regional Office Is Under Attack!",
+                        "price": "\u00a351.36"
+                    },
+                    {
+                        "product_name": "The Psychopath Test: A Journey Through the Madness Industry",
+                        "price": "\u00a336.00"
+                    },
+                    {
+                        "product_name": "The Project",
+                        "price": "\u00a310.65"
+                    },
+                    {
+                        "product_name": "The Power of Now: A Guide to Spiritual Enlightenment",
+                        "price": "\u00a343.54"
+                    },
+                    {
+                        "product_name": "The Omnivore's Dilemma: A Natural History of Four Meals",
+                        "price": "\u00a338.21"
+                    },
+                    {
+                        "product_name": "The Nerdy Nummies Cookbook: Sweet Treats for the Geek in All of Us",
+                        "price": "\u00a337.34"
+                    },
+                    {
+                        "product_name": "The Murder of Roger Ackroyd (Hercule Poirot #4)",
+                        "price": "\u00a344.10"
+                    },
+                    {
+                        "product_name": "The Mistake (Off-Campus #2)",
+                        "price": "\u00a343.29"
+                    },
+                    {
+                        "product_name": "The Matchmaker's Playbook (Wingmen Inc. #1)",
+                        "price": "\u00a355.85"
+                    },
+                    {
+                        "product_name": "The Love and Lemons Cookbook: An Apple-to-Zucchini Celebration of Impromptu Cooking",
+                        "price": "\u00a337.60"
+                    },
+                    {
+                        "product_name": "The Long Shadow of Small Ghosts: Murder and Memory in an American City",
+                        "price": "\u00a310.97"
+                    },
+                    {
+                        "product_name": "The Kite Runner",
+                        "price": "\u00a341.82"
+                    },
+                    {
+                        "product_name": "The House by the Lake",
+                        "price": "\u00a336.95"
+                    },
+                    {
+                        "product_name": "The Glittering Court (The Glittering Court #1)",
+                        "price": "\u00a344.28"
+                    },
+                    {
+                        "product_name": "The Girl on the Train",
+                        "price": "\u00a355.02"
+                    },
+                    {
+                        "product_name": "The Genius of Birds",
+                        "price": "\u00a317.24"
+                    }
+                ],
+                "time_sec": 259.76
+            },
+            {
+                "file": "page_10.html",
+                "status": "Success",
+                "tps": 3.9374795085376113,
+                "valid_json": true,
+                "data": {
+                    "product_name": [
+                        "Modern Romance",
+                        "Miss Peregrine\u2019s Home for Peculiar Children (Miss Peregrine\u2019s Peculiar Children #1)",
+                        "Louisa: The Extraordinary Life of Mrs. Adams",
+                        "Little Red",
+                        "Library of Souls (Miss Peregrine\u2019s Peculiar Children #3)"
+                    ],
+                    "price": [
+                        "\u00a328.26",
+                        "\u00a310.76",
+                        "\u00a316.85",
+                        "\u00a313.47",
+                        "\u00a348.56"
+                    ]
+                },
+                "time_sec": 105.46
+            },
+            {
+                "file": "page_5.html",
+                "status": "Success",
+                "tps": 3.8856086179985576,
+                "valid_json": false,
+                "data": "[PYTHON]\ndef extract_products(html):\n    soup = BeautifulSoup(html, \"html.parser\")\n    products = []\n    for li in soup.findAll(\"li\", {\"class\": \"col-xs-6 col-sm-4 col-md-3 col-lg-3\"}):\n        product = {}\n        product[\"product_name\"] = li.find(\"h3\").text.strip()\n        product[\"price\"] = float(li.find(\"p\", {\"class\": \"price_color\"}).text[1:])\n        products.append(product)\n    return products\n[/PYTHON]\n\n[TESTS]\n# Test case 1:\nassert extract_products(html=PAGE_5_HTML) == [\n    {\n        \"product_name\": \"Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)\",\n        \"price\": 13.61\n    },\n    {\n        \"product_name\": \"Princess Between Worlds (Wide-Awake Princess #5)\",\n        \"price\": 13.34\n    },\n    {\n        \"product_name\": \"Pop Gun War, Volume 1: Gift\",\n        \"price\": 18.97\n    },\n    {\n        \"product_name\": \"Patience\",\n        \"price\": 10.16\n    },\n    {\n        \"product_name\": \"Outcast, Vol. 1: A Darkness Surrounds Him (Outcast #1)\",\n        \"price\": 15.44\n    },\n    {\n        \"product_name\": \"orange: The Complete Collection 1 (orange: The Complete Collection #1)\",\n        \"price\": 48.41\n    },\n    {\n        \"product_name\": \"Online Marketing for Busy Authors: A Step-By-Step Guide\",\n        \"price\": 46.35\n    },\n    {\n        \"product_name\": \"On a Midnight Clear\",\n        \"price\": 14.07\n    },\n    {\n        \"product_name\": \"Obsidian (Lux #1)\",\n        \"price\": 14.86\n    },\n    {\n        \"product_name\": \"My Paris Kitchen: Recipes and Stories\",\n        \"price\": 33.37\n    },\n    {\n        \"product_name\": \"Masks and Shadows\",\n        \"price\": 56.40\n    },\n    {\n        \"product_name\": \"Mama Tried: Traditional Italian Cooking for the Screwed, Crude, Vegan, and Tattooed\",\n        \"price\": 14.02\n    },\n    {\n        \"product_name\": \"Lumberjanes, Vol. 2: Friendship to the Max (Lumberjanes #5-8)\",\n        \"price\": 46.91\n    },\n    {\n        \"product_name\": \"Lumberjanes, Vol. 1: Beware the Kitten Holy (Lumberjanes #1-4)\",\n        \"price\": 45.61\n    },\n    {\n        \"product_name\": \"Lumberjanes Vol. 3: A Terrible Plan (Lumberjanes #9-12)\",\n        \"price\": 19.92\n    },\n    {\n        \"product_name\": \"Layered: Baking, Building, and Styling Spectacular Cakes\",\n        \"price\": 40.11\n    },\n    {\n        \"product_name\": \"Judo: Seven Steps to Black Belt (an Introductory Guide for Beginners)\",\n        \"price\": 53.90\n    }\n]\n[/TESTS]",
+                "time_sec": 308.02
+            }
+        ]
+    },
+    {
+        "users_concurrency": 4,
+        "extractions": [
+            {
+                "file": "page_1.html",
+                "status": "Success",
+                "tps": 1.5761915393661043,
+                "valid_json": false,
+                "data": "[PYTHON]\nfrom bs4 import BeautifulSoup\nimport requests\nimport re\nimport json\n\ndef get_product_info(soup):\n    product_name = soup.find(\"h1\").text.strip()\n    price = soup.find(class_=\"price_color\").text\n    return {\"product_name\": product_name, \"price\": price}\n\ndef get_all_products(page_source):\n    soup = BeautifulSoup(page_source, \"html.parser\")\n    products = []\n    for article in soup.find_all(\"article\", class_=\"product_pod\"):\n        product_info = get_product_info(article)\n        products.append(product_info)\n    return products\n\ndef scrape_data(url):\n    response = requests.get(url)\n    page_source = response.text\n    all_products = get_all_products(page_source)\n    return json.dumps(all_products, indent=4)\n\nif __name__ == \"__main__\":\n    url = \"https://books.toscrape.com/catalogue/category/books_1/index.html\"\n    data = scrape_data(url)\n    print(data)\n[/PYTHON]",
+                "time_sec": 544.3
+            },
+            {
+                "file": "page_9.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_4.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_7.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_3.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_2.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_6.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_8.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_10.html",
+                "status": "Success",
+                "tps": 1.146961554251706,
+                "valid_json": true,
+                "data": {
+                    "product_name": [
+                        "Modern Romance",
+                        "Miss Peregrine\u2019s Home for Peculiar Children (Miss Peregrine\u2019s Peculiar Children #1)",
+                        "Louisa: The Extraordinary Life of Mrs. Adams",
+                        "Little Red",
+                        "Library of Souls (Miss Peregrine\u2019s Peculiar Children #3)"
+                    ],
+                    "price": [
+                        "\u00a328.26",
+                        "\u00a310.76",
+                        "\u00a316.85",
+                        "\u00a313.47",
+                        "\u00a348.56"
+                    ]
+                },
+                "time_sec": 226.19
+            },
+            {
+                "file": "page_5.html",
+                "status": "Success",
+                "tps": 3.1262921989672097,
+                "valid_json": false,
+                "data": "[PYTHON]\nimport json\n\ndef extract_products(html):\n    \"\"\"\n    Takes in a HTML string and returns a JSON string of products.\n    \"\"\"\n    # Parse the HTML using BeautifulSoup\n    soup = BeautifulSoup(html, \"html.parser\")\n\n    # Find all the product containers on the page\n    containers = soup.find_all(\"div\", {\"class\": \"product_pod\"})\n\n    # Loop through each container and extract the data we need\n    products = []\n    for container in containers:\n        # Get the name of the product\n        name = container.h3.a.text.strip()\n\n        # Get the price of the product\n        price_tag = container.find(\"p\", {\"class\": \"price_color\"})\n        price = float(price_tag.text[1:])\n\n        # Get the star rating of the product\n        rating_tag = container.find(\"p\", {\"class\": \"star-rating\"})\n        rating = float(rating_tag[\"class\"][1][6:]) / 10\n\n        # Add the data to our list of products\n        products.append({\n            \"name\": name,\n            \"price\": price,\n            \"rating\": rating\n        })\n\n    # Return the list of products as a JSON string\n    return json.dumps(products)\n[/PYTHON]\n\n[TESTS]\n# Test case 1:\nassert extract_products(html=SAMPLE_HTML) == SAMPLE_JSON\n# Test case 2:\nassert extract_products(html=\"<!DOCTYPE html><html></html>\") == \"[]\"\n# Test case 3:\nassert extract_products(html=\"<!DOCTYPE html><html><body><h1>404 Not Found</h1></body></html>\") == \"[]\"\n[/TESTS]",
+                "time_sec": 253.78
+            }
+        ]
+    },
+    {
+        "users_concurrency": 8,
+        "extractions": [
+            {
+                "file": "page_6.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_4.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_8.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_9.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_1.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_7.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_2.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_3.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_10.html",
+                "status": "Success",
+                "tps": 1.957858963549305,
+                "valid_json": true,
+                "data": {
+                    "product_name": [
+                        "Modern Romance",
+                        "Miss Peregrine\u2019s Home for Peculiar Children (Miss Peregrine\u2019s Peculiar Children #1)",
+                        "Louisa: The Extraordinary Life of Mrs. Adams",
+                        "Little Red",
+                        "Library of Souls (Miss Peregrine\u2019s Peculiar Children #3)"
+                    ],
+                    "price": [
+                        "\u00a328.26",
+                        "\u00a310.76",
+                        "\u00a316.85",
+                        "\u00a313.47",
+                        "\u00a348.56"
+                    ]
+                },
+                "time_sec": 323.9
+            },
+            {
+                "file": "page_5.html",
+                "status": "Success",
+                "tps": 3.341132933480058,
+                "valid_json": false,
+                "data": "[PYTHON]\nimport json\n\ndef extract_products(html):\n    data = []\n    # Use a HTML parser to parse the HTML content\n    soup = BeautifulSoup(html, 'html.parser')\n    # Find all the product containers on the page\n    products = soup.find_all('article', {'class': 'product_pod'})\n    for product in products:\n        # Extract the name and price of the product\n        name = product.h3.a['title']\n        price = product.find('p', {'class': 'price_color'}).text\n        # Add the product to the list of results\n        data.append({'product_name': name, 'price': price})\n    return data\n[/PYTHON]\n\n[TESTS]\n# Test case 1:\nassert extract_products(html=SAMPLE_HTML) == [{'product_name': 'Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)', 'price': '\u00a313.61'}, {'product_name': 'Princess Between Worlds (Wide-Awake Princess #5)', 'price': '\u00a313.34'}, {'product_name': 'Pop Gun War, Volume 1: Gift', 'price': '\u00a318.97'}, {'product_name': 'Patience', 'price': '\u00a310.16'}, {'product_name': 'Outcast, Vol. 1: A Darkness Surrounds Him (Outcast #1)', 'price': '\u00a315.44'}, {'product_name': 'orange: The Complete Collection 1 (orange: The Complete Collection #1)', 'price': '\u00a348.41'}, {'product_name': 'Online Marketing for Busy Authors: A Step-By-Step Guide', 'price': '\u00a346.35'}, {'product_name': 'On a Midnight Clear', 'price': '\u00a314.07'}, {'product_name': 'Obsidian (Lux #1)', 'price': '\u00a314.86'}, {'product_name': 'My Paris Kitchen: Recipes and Stories', 'price': '\u00a333.37'}, {'product_name': 'Masks and Shadows', 'price': '\u00a356.40'}, {'product_name': 'Mama Tried: Traditional Italian Cooking for the Screwed, Crude, Vegan, and Tattooed', 'price': '\u00a314.02'}, {'product_name': 'Lumberjanes, Vol. 2: Friendship to the Max (Lumberjanes #5-8)', 'price': '\u00a346.91'}, {'product_name': 'Lumberjanes, Vol. 1: Beware the Kitten Holy (Lumberjanes #1-4)', 'price': '\u00a345.61'}, {'product_name': 'Layered: Baking, Building, and Styling Spectacular Cakes', 'price': '\u00a340.11'}, {'product_name': 'Judo: Seven Steps to Black Belt (an Introductory Guide for Beginners)', 'price': '\u00a353.90'}]\n[/TESTS]",
+                "time_sec": 490.27
+            }
+        ]
+    }
+]

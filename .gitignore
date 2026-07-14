@@ -1,0 +1,11 @@
+# Ignore node_modules in all subfolders
+node_modules/
+*/node_modules/
+
+# Ignore Python cache if any
+__pycache__/
+*.pyc
+
+# Ignore environment variables and logs
+.env
+*.log

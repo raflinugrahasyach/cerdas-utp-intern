@@ -1,0 +1,257 @@
+[
+    {
+        "users_concurrency": 1,
+        "extractions": [
+            {
+                "file": "page_1.html",
+                "status": "Success",
+                "tps": 18.895452707270554,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 48.98
+            },
+            {
+                "file": "page_4.html",
+                "status": "Success",
+                "tps": 21.55565246976906,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 29.71
+            },
+            {
+                "file": "page_9.html",
+                "status": "Success",
+                "tps": 22.286348466046235,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 30.03
+            },
+            {
+                "file": "page_7.html",
+                "status": "Success",
+                "tps": 21.547075263567596,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 29.89
+            },
+            {
+                "file": "page_3.html",
+                "status": "Success",
+                "tps": 22.536995181872143,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 29.32
+            },
+            {
+                "file": "page_2.html",
+                "status": "Success",
+                "tps": 0,
+                "valid_json": false,
+                "data": "ehind Closed Doors\">Behind Closed  ...</a></h3>\n        \n\n        \n            \n                \n            \n            \n        \n    \n\n\n<p class=\"instock availability\">\n    <i class=\"icon-ok\"></i>\n    \n    In stock\n    \n</p>",
+                "time_sec": 36.62
+            },
+            {
+                "file": "page_6.html",
+                "status": "Success",
+                "tps": 21.971586717573807,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 29.69
+            },
+            {
+                "file": "page_8.html",
+                "status": "Success",
+                "tps": 12.496795431126602,
+                "valid_json": false,
+                "data": "he Emerald Mystery\">The Emerald",
+                "time_sec": 31.54
+            },
+            {
+                "file": "page_10.html",
+                "status": "Success",
+                "tps": 0,
+                "valid_json": false,
+                "data": "</a></h3>\n        \n\n        \n            \n                \n                    \n\n\n\n\n\n\n    \n    \n    \n\n\n                \n            \n\n            \n            \n                \n                    <div class=\"product_price\">\n                        \n                            \n                            \n                                <p class=\"price_color\">\u00a320.96</p>\n                            \n                        \n\n                        \n                            <p class=\"instock availability\">\n                                \n                                    In stock\n                                \n                            </p>\n                        \n\n                    \n                    \n\n\n\n\n\n\n    \n    \n    \n\n\n                \n            \n\n            \n            \n                \n                    </div>\n                \n            \n        \n    \n\n    \n\n        \n            \n                \n                    \n\n\n\n\n\n\n    \n    \n    \n\n\n                \n            \n\n            \n            \n                \n                    <form>\n                        \n                            <button type=\"submit\" class=\"btn btn-primary btn-block\" data-loading-text=\"Adding...\">Add to basket</button>\n                        \n\n                    \n                    \n\n\n\n\n\n\n    \n    \n    \n\n\n                \n            \n\n            \n            \n                \n                    </form>\n                \n            \n        \n    \n\n    \n</article>\n\n\n</li>\n                    \n                        \n                </ol>\n            </div>\n        </section>\n\n        \n    \n\n\n\n<nav class=\"pagination\" role=\"navigation\">\n    <ul class=\"pager\">\n        \n        \n        \n            <li><a href=\"https://books.toscrape.com/catalogue/page-9.html\">Previous</a></li>\n        \n\n        \n            \n                \n                    <li><a href=\"https://books.toscrape.com/catalogue/page-10.html\">10</a></li>\n                \n            \n        \n        \n        \n            <li class=\"active\"><span>11</span></li>\n        \n\n        \n            \n                \n                    <li><a href=\"https://books.toscrape.com/catalogue/page-12.html\">12</a></li>\n                \n            \n        \n        \n        \n            <li><a href=\"https://books.toscrape.com/catalogue/page-13.html\">Next</a></li>\n        \n        \n    </ul>\n</nav>",
+                "time_sec": 64.5
+            },
+            {
+                "file": "page_5.html",
+                "status": "Success",
+                "tps": 0,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 30.15
+            }
+        ]
+    },
+    {
+        "users_concurrency": 4,
+        "extractions": [
+            {
+                "file": "page_4.html",
+                "status": "Success",
+                "tps": 0.43433305462796523,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 136.46
+            },
+            {
+                "file": "page_1.html",
+                "status": "Success",
+                "tps": 14.959794616979702,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 139.17
+            },
+            {
+                "file": "page_9.html",
+                "status": "Success",
+                "tps": 14.822167158694683,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 139.25
+            },
+            {
+                "file": "page_7.html",
+                "status": "Success",
+                "tps": 14.706514408652342,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 139.32
+            },
+            {
+                "file": "page_3.html",
+                "status": "Success",
+                "tps": 0.3927261617463759,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 113.95
+            },
+            {
+                "file": "page_6.html",
+                "status": "Success",
+                "tps": 1.1738330564778616,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 120.58
+            },
+            {
+                "file": "page_8.html",
+                "status": "Success",
+                "tps": 0.3873272015065232,
+                "valid_json": false,
+                "data": "he Emerald Mystery\">The Emerald",
+                "time_sec": 175.62
+            },
+            {
+                "file": "page_5.html",
+                "status": "Success",
+                "tps": 0,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 65.19
+            },
+            {
+                "file": "page_10.html",
+                "status": "Success",
+                "tps": 0,
+                "valid_json": false,
+                "data": "</a></h3>\n        \n\n        \n            \n                \n                    \n\n\n\n\n\n\n    \n    \n    \n\n\n                \n            \n\n            \n            \n                \n                    <div class=\"product_price\">",
+                "time_sec": 85.1
+            },
+            {
+                "file": "page_2.html",
+                "status": "Success",
+                "tps": 0,
+                "valid_json": false,
+                "data": "ehind Closed Doors\">Behind Closed  ...</a></h3>\n        \n\n        \n            \n                \n            \n            \n        \n    \n\n\n<p class=\"instock availability\">\n    <i class=\"icon-ok\"></i>\n    \n    In stock\n    \n</p>",
+                "time_sec": 196.34
+            }
+        ]
+    },
+    {
+        "users_concurrency": 8,
+        "extractions": [
+            {
+                "file": "page_1.html",
+                "status": "Success",
+                "tps": 0.9674724294979766,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 263.67
+            },
+            {
+                "file": "page_3.html",
+                "status": "Success",
+                "tps": 0.9669984023020318,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 263.74
+            },
+            {
+                "file": "page_7.html",
+                "status": "Success",
+                "tps": 0.9667161439400626,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 263.84
+            },
+            {
+                "file": "page_4.html",
+                "status": "Success",
+                "tps": 0.966433706130545,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 263.93
+            },
+            {
+                "file": "page_6.html",
+                "status": "Success",
+                "tps": 6.819489726566593,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 264.14
+            },
+            {
+                "file": "page_9.html",
+                "status": "Success",
+                "tps": 6.79214027383478,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 264.21
+            },
+            {
+                "file": "page_8.html",
+                "status": "Success",
+                "tps": 0.41927722973766374,
+                "valid_json": false,
+                "data": "he Emerald Mystery\">The Emerald",
+                "time_sec": 305.96
+            },
+            {
+                "file": "page_5.html",
+                "status": "Success",
+                "tps": 0,
+                "valid_json": false,
+                "data": "",
+                "time_sec": 65.55
+            },
+            {
+                "file": "page_2.html",
+                "status": "Success",
+                "tps": 0,
+                "valid_json": false,
+                "data": "ehind Closed Doors\">Behind Closed  ...</a></h3>\n        \n\n        \n            \n                \n            \n            \n        \n    \n\n\n<p class=\"instock availability\">\n    <i class=\"icon-ok\"></i>\n    \n    In stock\n    \n</p>",
+                "time_sec": 339.4
+            },
+            {
+                "file": "page_10.html",
+                "status": "Success",
+                "tps": 0,
+                "valid_json": false,
+                "data": "</a></h3>\n        \n\n        \n            \n                \n                    \n\n\n\n\n\n\n    \n    \n    \n\n\n                \n            \n\n            \n            \n                \n                    <div class=\"product_price\">",
+                "time_sec": 76.47
+            }
+        ]
+    }
+]

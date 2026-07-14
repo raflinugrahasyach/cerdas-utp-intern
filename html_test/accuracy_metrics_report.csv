@@ -1,0 +1,24 @@
+Model,Users,Total_Products_Target,True_Positives (Sukses),False_Positives (Ngarang),False_Negatives (Kelewatan),Precision (%),Recall (%),F1_Score
+deepseek-coder-v2:16b,1,200,177,5,23,97.25,88.5,92.67
+qwen2.5-coder:14b,1,200,152,2,48,98.7,76.0,85.88
+codestral:22b,1,200,89,4,111,95.7,44.5,60.75
+phind-codellama:34b,1,200,69,1,131,98.57,34.5,51.11
+deepseek-coder:33b,1,200,53,2,147,96.36,26.5,41.57
+codellama:34b,1,200,36,0,164,100.0,18.0,30.51
+yi-coder:9b,1,200,30,2,170,93.75,15.0,25.86
+starcoder2:15b,1,200,0,0,200,0.0,0.0,0.0
+qwen2.5-coder:14b,4,200,158,2,42,98.75,79.0,87.78
+codestral:22b,4,200,89,4,111,95.7,44.5,60.75
+deepseek-coder-v2:16b,4,200,71,1,129,98.61,35.5,52.21
+phind-codellama:34b,4,200,35,0,165,100.0,17.5,29.79
+yi-coder:9b,4,200,16,1,184,94.12,8.0,14.75
+codellama:34b,4,200,0,0,200,0.0,0.0,0.0
+starcoder2:15b,4,200,0,0,200,0.0,0.0,0.0
+deepseek-coder:33b,4,200,0,0,200,0.0,0.0,0.0
+qwen2.5-coder:14b,8,200,152,2,48,98.7,76.0,85.88
+yi-coder:9b,8,200,42,12,158,77.78,21.0,33.07
+phind-codellama:34b,8,200,35,0,165,100.0,17.5,29.79
+deepseek-coder-v2:16b,8,200,35,1,165,97.22,17.5,29.66
+codestral:22b,8,200,17,2,183,89.47,8.5,15.53
+codellama:34b,8,200,0,0,200,0.0,0.0,0.0
+starcoder2:15b,8,200,0,0,200,0.0,0.0,0.0

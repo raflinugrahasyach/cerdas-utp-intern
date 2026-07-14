@@ -1,0 +1,13 @@
+Model,Users,Status,Avg_TPS,Valid_JSON_Rate,Avg_Time_Sec,Precision,Recall,F1_Score
+llama3.1:8b,1,Success,22.25,100%,41.27,0.0,0.0,0
+llama3.1:8b,4,Success,8.71,100%,109.64,0.0,0.0,0
+llama3.1:8b,8,Success,6.49,100%,203.12,0.0,0.0,0
+gemma2:9b,1,Success,17.01,0%,40.39,0,0.0,0
+gemma2:9b,4,Success,6.38,0%,110.4,0,0.0,0
+gemma2:9b,8,Success,4.46,0%,201.43,0,0.0,0
+mistral:7b,1,Failed,0.0,0%,0.0,0.0,0.0,0.0
+qwen2.5:14b,1,Success,11.11,100%,76.75,96.7,88.0,92.15
+qwen2.5:14b,4,Success,3.91,100%,210.46,96.7,88.0,92.15
+qwen2.5:14b,8,Success,2.86,100%,390.08,96.7,88.0,92.15
+phi3:14b,1,Failed,0.0,0%,0.0,0.0,0.0,0.0
+qwen2.5:32b,1,Failed,0.0,0%,0.0,0.0,0.0,0.0

@@ -1,0 +1,812 @@
+[
+    {
+        "users_concurrency": 1,
+        "extractions": [
+            {
+                "file": "page_1.html",
+                "status": "Success",
+                "tps": 3.9467573616911102,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\nhtml = '''<!DOCTYPE html>...'''  # The given HTML goes here.\n\nsoup = BeautifulSoup(html, 'html.parser')\n\nproducts = []\nfor article in soup.find_all('article', class_='product_pod'):\n    name = article.h3.a['title']\n    price = article.find('p', class_='price_color').text\n    \n    products.append({'product_name': name, 'price': price})\n\nprint(json.dumps(products, indent=4))",
+                "time_sec": 180.47
+            },
+            {
+                "file": "page_4.html",
+                "status": "Success",
+                "tps": 3.901977261515779,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "The Nameless City (The Nameless City #1)",
+                        "price": "\u00a338.16"
+                    },
+                    {
+                        "product_name": "The Murder That Never Was (Forensic Instincts #5)",
+                        "price": "\u00a354.11"
+                    },
+                    {
+                        "product_name": "The Most Perfect Thing: Inside (and Outside) a Bird's Egg",
+                        "price": "\u00a342.96"
+                    },
+                    {
+                        "product_name": "The Mindfulness and Acceptance Workbook for Anxiety: A Guide to Breaking Free from Anxiety, Phobias, and Worry Using Acceptance and Commitment Therapy",
+                        "price": "\u00a323.89"
+                    },
+                    {
+                        "product_name": "The Inefficiency Assassin: Time Management Tactics for Working Smarter, Not Longer",
+                        "price": "\u00a320.59"
+                    },
+                    {
+                        "product_name": "The Gutsy Girl: Escapades for Your Life of Epic Adventure",
+                        "price": "\u00a337.13"
+                    },
+                    {
+                        "product_name": "The Electric Pencil: Drawings from Inside State Hospital No. 3",
+                        "price": "\u00a356.06"
+                    },
+                    {
+                        "product_name": "The Death of Humanity: and the Case for Life",
+                        "price": "\u00a358.11"
+                    },
+                    {
+                        "product_name": "The Bulletproof Diet: Lose up to a Pound a Day, Reclaim Energy and Focus, Upgrade Your Life",
+                        "price": "\u00a349.05"
+                    },
+                    {
+                        "product_name": "The Art Forger",
+                        "price": "\u00a340.76"
+                    },
+                    {
+                        "product_name": "The Age of Genius: The Seventeenth Century and the Birth of the Modern Mind",
+                        "price": "\u00a319.73"
+                    },
+                    {
+                        "product_name": "The Activist's Tao Te Ching: Ancient Advice for a Modern Revolution",
+                        "price": "\u00a332.24"
+                    },
+                    {
+                        "product_name": "Spark Joy: An Illustrated Master Class on the Art of Organizing and Tidying Up",
+                        "price": "\u00a341.83"
+                    },
+                    {
+                        "product_name": "Soul Reader",
+                        "price": "\u00a339.58"
+                    },
+                    {
+                        "product_name": "Security",
+                        "price": "\u00a339.25"
+                    },
+                    {
+                        "product_name": "Saga, Volume 6 (Saga (Collected Editions) #6)",
+                        "price": "\u00a325.02"
+                    },
+                    {
+                        "product_name": "Saga, Volume 5 (Saga (Collected Editions) #5)",
+                        "price": "\u00a319.73"
+                    }
+                ],
+                "time_sec": 275.5
+            },
+            {
+                "file": "page_9.html",
+                "status": "Success",
+                "tps": 3.9089168929059,
+                "valid_json": false,
+                "data": "python\nimport requests\nfrom bs4 import BeautifulSoup\nimport json\n\ndef get_products(url):\n    response = requests.get(url)\n    soup = BeautifulSoup(response.text, 'html.parser')\n    products = []\n    \n    for article in soup.find_all('article', class_='product_pod'):\n        product_name = article.a['title']\n        price = article.find('p', class_='price_color').get_text()\n        \n        products.append({'product_name': product_name, 'price': price})\n    \n    return products\n\nurl = \"https://books.toscrape.com/catalogue/page-9.html\"\nproducts = get_products(url)\nprint(json.dumps(products, indent=4))",
+                "time_sec": 166.89
+            },
+            {
+                "file": "page_7.html",
+                "status": "Success",
+                "tps": 3.0140905610861792,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\nhtml = '''<!DOCTYPE html>...'''  # The given HTML goes here\n\nsoup = BeautifulSoup(html, 'html.parser')\n\nproducts = []\nfor article in soup.find_all('article', class_='product_pod'):\n    name = article.h3.a['title']\n    price = article.find('p', class_='price_color').text\n    \n    products.append({'product_name': name, 'price': price})\n\nprint(json.dumps(products, indent=4))",
+                "time_sec": 179.8
+            },
+            {
+                "file": "page_3.html",
+                "status": "Success",
+                "tps": 3.8506420337005336,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\nhtml = '''<!DOCTYPE html>...'''  # The given HTML goes here.\n\nsoup = BeautifulSoup(html, 'html.parser')\n\nproducts = []\nfor article in soup.find_all('article', class_='product_pod'):\n    name = article.h3.a['title']\n    price = article.find('p', class_='price_color').text\n    \n    products.append({'product_name': name, 'price': price})\n\nprint(json.dumps(products, indent=4))",
+                "time_sec": 143.45
+            },
+            {
+                "file": "page_2.html",
+                "status": "Success",
+                "tps": 3.888183938391956,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\nhtml = '''<YOUR-HTML-HERE>'''\n\nsoup = BeautifulSoup(html, 'lxml')\n\nproducts = []\nfor article in soup.find_all('article', class_='product_pod'):\n    name = article.h3.a['title']\n    price = article.find('p', class_='price_color').text\n    \n    products.append({'product_name': name, 'price': price})\n\nprint(json.dumps(products, indent=4))",
+                "time_sec": 128.27
+            },
+            {
+                "file": "page_6.html",
+                "status": "Success",
+                "tps": 3.870964331010571,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\nhtml = '''<YOUR_HTML_HERE>'''  # replace <YOUR_HTML_HERE> with your actual HTML content\n\nsoup = BeautifulSoup(html, 'html.parser')\n\nproducts = []\n\nfor article in soup.find_all('article', class_='product_pod'):\n    name = article.h3.a['title']\n    price = article.find('p', class_='price_color').text\n    \n    products.append({'product_name': name, 'price': price})\n\nprint(json.dumps(products, indent=4))",
+                "time_sec": 150.04
+            },
+            {
+                "file": "page_8.html",
+                "status": "Success",
+                "tps": 3.8475745577279565,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "The Shadow Hero (The Shadow Hero)",
+                        "price": "\u00a333.14"
+                    },
+                    {
+                        "product_name": "The Secret (The Secret #1)",
+                        "price": "\u00a327.37"
+                    },
+                    {
+                        "product_name": "The Regional Office Is Under Attack!",
+                        "price": "\u00a351.36"
+                    },
+                    {
+                        "product_name": "The Psychopath Test: A Journey Through the Madness Industry",
+                        "price": "\u00a336.00"
+                    },
+                    {
+                        "product_name": "The Project",
+                        "price": "\u00a310.65"
+                    },
+                    {
+                        "product_name": "The Power of Now: A Guide to Spiritual Enlightenment",
+                        "price": "\u00a343.54"
+                    },
+                    {
+                        "product_name": "The Omnivore's Dilemma: A Natural History of Four Meals",
+                        "price": "\u00a338.21"
+                    },
+                    {
+                        "product_name": "The Nerdy Nummies Cookbook: Sweet Treats for the Geek in All of Us",
+                        "price": "\u00a337.34"
+                    },
+                    {
+                        "product_name": "The Murder of Roger Ackroyd (Hercule Poirot #4)",
+                        "price": "\u00a344.10"
+                    },
+                    {
+                        "product_name": "The Mistake (Off-Campus #2)",
+                        "price": "\u00a343.29"
+                    },
+                    {
+                        "product_name": "The Matchmaker's Playbook (Wingmen Inc. #1)",
+                        "price": "\u00a355.85"
+                    },
+                    {
+                        "product_name": "The Love and Lemons Cookbook: An Apple-to-Zucchini Celebration of Impromptu Cooking",
+                        "price": "\u00a337.60"
+                    },
+                    {
+                        "product_name": "The Long Shadow of Small Ghosts: Murder and Memory in an American City",
+                        "price": "\u00a310.97"
+                    },
+                    {
+                        "product_name": "The Kite Runner",
+                        "price": "\u00a341.82"
+                    },
+                    {
+                        "product_name": "The House by the Lake",
+                        "price": "\u00a336.95"
+                    },
+                    {
+                        "product_name": "The Glittering Court (The Glittering Court #1)",
+                        "price": "\u00a344.28"
+                    },
+                    {
+                        "product_name": "The Girl on the Train",
+                        "price": "\u00a355.02"
+                    },
+                    {
+                        "product_name": "The Genius of Birds",
+                        "price": "\u00a317.24"
+                    }
+                ],
+                "time_sec": 270.86
+            },
+            {
+                "file": "page_10.html",
+                "status": "Success",
+                "tps": 3.466140750413414,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "Modern Romance",
+                        "price": "\u00a328.26"
+                    },
+                    {
+                        "product_name": "Miss Peregrine\u2019s Home for Peculiar Children (Miss Peregrine\u2019s Peculiar Children #1)",
+                        "price": "\u00a310.76"
+                    },
+                    {
+                        "product_name": "Louisa: The Extraordinary Life of Mrs. Adams",
+                        "price": "\u00a316.85"
+                    },
+                    {
+                        "product_name": "Little Red",
+                        "price": "\u00a313.47"
+                    },
+                    {
+                        "product_name": "Library of Souls (Miss Peregrine\u2019s Peculiar Children #3)",
+                        "price": "\u00a348.56"
+                    },
+                    {
+                        "product_name": "Large Print Heart of the Pride",
+                        "price": "\u00a319.15"
+                    },
+                    {
+                        "product_name": "I Had a Nice Time And Other Lies...: How to find love & sh*t like that",
+                        "price": "\u00a357.36"
+                    },
+                    {
+                        "product_name": "Hollow City (Miss Peregrine\u2019s Peculiar Children #2)",
+                        "price": "\u00a342.98"
+                    },
+                    {
+                        "product_name": "Grumbles",
+                        "price": "\u00a322.16"
+                    },
+                    {
+                        "product_name": "Full Moon over Noah\u2019s Ark: An Odyssey to Mount Ararat and Beyond",
+                        "price": "\u00a349.43"
+                    },
+                    {
+                        "product_name": "Frostbite (Vampire Academy #2)",
+                        "price": "\u00a329.99"
+                    },
+                    {
+                        "product_name": "Follow You Home",
+                        "price": "\u00a321.36"
+                    },
+                    {
+                        "product_name": "First Steps for New Christians (Print Edition)",
+                        "price": "\u00a329.00"
+                    },
+                    {
+                        "product_name": "Finders Keepers (Bill Hodges Trilogy #2)",
+                        "price": "\u00a353.53"
+                    },
+                    {
+                        "product_name": "Fables, Vol. 1: Legends in Exile (Fables #1)",
+                        "price": "\u00a341.62"
+                    },
+                    {
+                        "product_name": "Eureka Trivia 6.0",
+                        "price": "\u00a354.59"
+                    },
+                    {
+                        "product_name": "Drive: The Surprising Truth About What Motivates Us",
+                        "price": "\u00a334.95"
+                    },
+                    {
+                        "product_name": "Done Rubbed Out (Reightman & Bailey #1)",
+                        "price": "\u00a337.72"
+                    }
+                ],
+                "time_sec": 293.48
+            },
+            {
+                "file": "page_5.html",
+                "status": "Success",
+                "tps": 3.826859468762693,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)",
+                        "price": "\u00a313.61"
+                    },
+                    {
+                        "product_name": "Princess Between Worlds (Wide-Awake Princess #5)",
+                        "price": "\u00a313.34"
+                    },
+                    {
+                        "product_name": "Pop Gun War, Volume 1: Gift",
+                        "price": "\u00a318.97"
+                    },
+                    {
+                        "product_name": "Patience",
+                        "price": "\u00a310.16"
+                    },
+                    {
+                        "product_name": "Outcast, Vol. 1: A Darkness Surrounds Him (Outcast #1)",
+                        "price": "\u00a315.44"
+                    },
+                    {
+                        "product_name": "orange: The Complete Collection 1 (orange: The Complete Collection #1)",
+                        "price": "\u00a348.41"
+                    },
+                    {
+                        "product_name": "Online Marketing for Busy Authors: A Step-By-Step Guide",
+                        "price": "\u00a346.35"
+                    },
+                    {
+                        "product_name": "On a Midnight Clear",
+                        "price": "\u00a314.07"
+                    },
+                    {
+                        "product_name": "Obsidian (Lux #1)",
+                        "price": "\u00a314.86"
+                    },
+                    {
+                        "product_name": "My Paris Kitchen: Recipes and Stories",
+                        "price": "\u00a333.37"
+                    },
+                    {
+                        "product_name": "Masks and Shadows",
+                        "price": "\u00a356.40"
+                    },
+                    {
+                        "product_name": "Mama Tried: Traditional Italian Cooking for the Screwed, Crude, Vegan, and Tattooed",
+                        "price": "\u00a314.02"
+                    },
+                    {
+                        "product_name": "Lumberjanes, Vol. 2: Friendship to the Max (Lumberjanes #5-8)",
+                        "price": "\u00a346.91"
+                    },
+                    {
+                        "product_name": "Lumberjanes, Vol. 1: Beware the Kitten Holy (Lumberjanes #1-4)",
+                        "price": "\u00a345.61"
+                    },
+                    {
+                        "product_name": "Lumberjanes Vol. 3: A Terrible Plan (Lumberjanes #9-12)",
+                        "price": "\u00a319.92"
+                    },
+                    {
+                        "product_name": "Layered: Baking, Building, and Styling Spectacular Cakes",
+                        "price": "\u00a340.11"
+                    },
+                    {
+                        "product_name": "Judo: Seven Steps to Black Belt (an Introductory Guide for Beginners)",
+                        "price": "\u00a353.90"
+                    }
+                ],
+                "time_sec": 283.25
+            }
+        ]
+    },
+    {
+        "users_concurrency": 4,
+        "extractions": [
+            {
+                "file": "page_1.html",
+                "status": "Success",
+                "tps": 1.5122367648148942,
+                "valid_json": false,
+                "data": "python\nimport requests\nfrom bs4 import BeautifulSoup\nimport json\n\ndef get_products(url):\n    response = requests.get(url)\n    soup = BeautifulSoup(response.text, 'html.parser')\n    \n    products = []\n    \n    for article in soup.find_all('article', class_='product_pod'):\n        product_name = article.h3.a['title']\n        \n        price = article.find('p', class_='price_color').text\n        \n        products.append({'product_name': product_name, 'price': price})\n    \n    return products\n\nurl = \"https://books.toscrape.com/catalogue/category/books/travel_2/index.html\"\nproducts = get_products(url)\nprint(json.dumps(products, indent=4))",
+                "time_sec": 505.23
+            },
+            {
+                "file": "page_7.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_4.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_9.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_3.html",
+                "status": "Success",
+                "tps": 0.6648704479146886,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\nhtml = '''<your_html_here>'''  # replace '<your_html_here>' with your actual HTML content\n\nsoup = BeautifulSoup(html, 'html.parser')\n\nproducts = []\n\nfor article in soup.find_all('article', class_='product_pod'):\n    name = article.h3.a['title']\n    price = article.find('p', class_='price_color').text\n    \n    products.append({'product_name': name, 'price': price})\n\nprint(json.dumps(products, indent=4))",
+                "time_sec": 555.63
+            },
+            {
+                "file": "page_6.html",
+                "status": "Success",
+                "tps": 1.13260071201496,
+                "valid_json": false,
+                "data": "python\nfrom bs4 import BeautifulSoup\nimport json\n\nhtml = '''<YOUR_HTML_HERE>'''  # replace <YOUR_HTML_HERE> with your actual HTML content\n\nsoup = BeautifulSoup(html, 'lxml')\n\nproducts = []\n\nfor article in soup.find_all('article', class_='product_pod'):\n    name = article.h3.a['title']\n    price = article.find('p', class_='price_color').text\n    \n    products.append({'product_name': name, 'price': price})\n\nprint(json.dumps(products, indent=4))",
+                "time_sec": 508.96
+            },
+            {
+                "file": "page_8.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_2.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_10.html",
+                "status": "Success",
+                "tps": 2.2293009681527107,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "Modern Romance",
+                        "price": "\u00a328.26"
+                    },
+                    {
+                        "product_name": "Miss Peregrine\u2019s Home for Peculiar Children (Miss Peregrine\u2019s Peculiar Children #1)",
+                        "price": "\u00a310.76"
+                    },
+                    {
+                        "product_name": "Louisa: The Extraordinary Life of Mrs. Adams",
+                        "price": "\u00a316.85"
+                    },
+                    {
+                        "product_name": "Little Red",
+                        "price": "\u00a313.47"
+                    },
+                    {
+                        "product_name": "Library of Souls (Miss Peregrine\u2019s Peculiar Children #3)",
+                        "price": "\u00a348.56"
+                    },
+                    {
+                        "product_name": "Large Print Heart of the Pride",
+                        "price": "\u00a319.15"
+                    },
+                    {
+                        "product_name": "I Had a Nice Time And Other Lies...: How to find love & sh*t like that",
+                        "price": "\u00a357.36"
+                    },
+                    {
+                        "product_name": "Hollow City (Miss Peregrine\u2019s Peculiar Children #2)",
+                        "price": "\u00a342.98"
+                    },
+                    {
+                        "product_name": "Grumbles",
+                        "price": "\u00a322.16"
+                    },
+                    {
+                        "product_name": "Full Moon over Noah\u2019s Ark: An Odyssey to Mount Ararat and Beyond",
+                        "price": "\u00a349.43"
+                    },
+                    {
+                        "product_name": "Frostbite (Vampire Academy #2)",
+                        "price": "\u00a329.99"
+                    },
+                    {
+                        "product_name": "Follow You Home",
+                        "price": "\u00a321.36"
+                    },
+                    {
+                        "product_name": "First Steps for New Christians (Print Edition)",
+                        "price": "\u00a329.00"
+                    },
+                    {
+                        "product_name": "Finders Keepers (Bill Hodges Trilogy #2)",
+                        "price": "\u00a353.53"
+                    },
+                    {
+                        "product_name": "Fables, Vol. 1: Legends in Exile (Fables #1)",
+                        "price": "\u00a341.62"
+                    },
+                    {
+                        "product_name": "Eureka Trivia 6.0",
+                        "price": "\u00a354.59"
+                    },
+                    {
+                        "product_name": "Drive: The Surprising Truth About What Motivates Us",
+                        "price": "\u00a334.95"
+                    },
+                    {
+                        "product_name": "Done Rubbed Out (Reightman & Bailey #1)",
+                        "price": "\u00a337.72"
+                    }
+                ],
+                "time_sec": 451.52
+            },
+            {
+                "file": "page_5.html",
+                "status": "Success",
+                "tps": 2.6966628150348955,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)",
+                        "price": "\u00a313.61"
+                    },
+                    {
+                        "product_name": "Princess Between Worlds (Wide-Awake Princess #5)",
+                        "price": "\u00a313.34"
+                    },
+                    {
+                        "product_name": "Pop Gun War, Volume 1: Gift",
+                        "price": "\u00a318.97"
+                    },
+                    {
+                        "product_name": "Patience",
+                        "price": "\u00a310.16"
+                    },
+                    {
+                        "product_name": "Outcast, Vol. 1: A Darkness Surrounds Him (Outcast #1)",
+                        "price": "\u00a315.44"
+                    },
+                    {
+                        "product_name": "orange: The Complete Collection 1 (orange: The Complete Collection #1)",
+                        "price": "\u00a348.41"
+                    },
+                    {
+                        "product_name": "Online Marketing for Busy Authors: A Step-By-Step Guide",
+                        "price": "\u00a346.35"
+                    },
+                    {
+                        "product_name": "On a Midnight Clear",
+                        "price": "\u00a314.07"
+                    },
+                    {
+                        "product_name": "Obsidian (Lux #1)",
+                        "price": "\u00a314.86"
+                    },
+                    {
+                        "product_name": "My Paris Kitchen: Recipes and Stories",
+                        "price": "\u00a333.37"
+                    },
+                    {
+                        "product_name": "Masks and Shadows",
+                        "price": "\u00a356.40"
+                    },
+                    {
+                        "product_name": "Mama Tried: Traditional Italian Cooking for the Screwed, Crude, Vegan, and Tattooed",
+                        "price": "\u00a314.02"
+                    },
+                    {
+                        "product_name": "Lumberjanes, Vol. 2: Friendship to the Max (Lumberjanes #5-8)",
+                        "price": "\u00a346.91"
+                    },
+                    {
+                        "product_name": "Lumberjanes, Vol. 1: Beware the Kitten Holy (Lumberjanes #1-4)",
+                        "price": "\u00a345.61"
+                    },
+                    {
+                        "product_name": "Lumberjanes Vol. 3: A Terrible Plan (Lumberjanes #9-12)",
+                        "price": "\u00a319.92"
+                    },
+                    {
+                        "product_name": "Layered: Baking, Building, and Styling Spectacular Cakes",
+                        "price": "\u00a340.11"
+                    },
+                    {
+                        "product_name": "Judo: Seven Steps to Black Belt (an Introductory Guide for Beginners)",
+                        "price": "\u00a353.90"
+                    }
+                ],
+                "time_sec": 416.74
+            }
+        ]
+    },
+    {
+        "users_concurrency": 8,
+        "extractions": [
+            {
+                "file": "page_7.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_6.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_2.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_9.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_4.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_1.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_3.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_8.html",
+                "status": "Failed",
+                "tps": 0,
+                "valid_json": false,
+                "data": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=600)"
+            },
+            {
+                "file": "page_10.html",
+                "status": "Success",
+                "tps": 2.5101457110830867,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "Modern Romance",
+                        "price": "\u00a328.26"
+                    },
+                    {
+                        "product_name": "Miss Peregrine\u2019s Home for Peculiar Children (Miss Peregrine\u2019s Peculiar Children #1)",
+                        "price": "\u00a310.76"
+                    },
+                    {
+                        "product_name": "Louisa: The Extraordinary Life of Mrs. Adams",
+                        "price": "\u00a316.85"
+                    },
+                    {
+                        "product_name": "Little Red",
+                        "price": "\u00a313.47"
+                    },
+                    {
+                        "product_name": "Library of Souls (Miss Peregrine\u2019s Peculiar Children #3)",
+                        "price": "\u00a348.56"
+                    },
+                    {
+                        "product_name": "Large Print Heart of the Pride",
+                        "price": "\u00a319.15"
+                    },
+                    {
+                        "product_name": "I Had a Nice Time And Other Lies...: How to find love & sh*t like that",
+                        "price": "\u00a357.36"
+                    },
+                    {
+                        "product_name": "Hollow City (Miss Peregrine\u2019s Peculiar Children #2)",
+                        "price": "\u00a342.98"
+                    },
+                    {
+                        "product_name": "Grumbles",
+                        "price": "\u00a322.16"
+                    },
+                    {
+                        "product_name": "Full Moon over Noah\u2019s Ark: An Odyssey to Mount Ararat and Beyond",
+                        "price": "\u00a349.43"
+                    },
+                    {
+                        "product_name": "Frostbite (Vampire Academy #2)",
+                        "price": "\u00a329.99"
+                    },
+                    {
+                        "product_name": "Follow You Home",
+                        "price": "\u00a321.36"
+                    },
+                    {
+                        "product_name": "First Steps for New Christians (Print Edition)",
+                        "price": "\u00a329.00"
+                    },
+                    {
+                        "product_name": "Finders Keepers (Bill Hodges Trilogy #2)",
+                        "price": "\u00a353.53"
+                    },
+                    {
+                        "product_name": "Fables, Vol. 1: Legends in Exile (Fables #1)",
+                        "price": "\u00a341.62"
+                    },
+                    {
+                        "product_name": "Eureka Trivia 6.0",
+                        "price": "\u00a354.59"
+                    },
+                    {
+                        "product_name": "Drive: The Surprising Truth About What Motivates Us",
+                        "price": "\u00a334.95"
+                    },
+                    {
+                        "product_name": "Done Rubbed Out (Reightman & Bailey #1)",
+                        "price": "\u00a337.72"
+                    }
+                ],
+                "time_sec": 552.51
+            },
+            {
+                "file": "page_5.html",
+                "status": "Success",
+                "tps": 2.5544916351492772,
+                "valid_json": true,
+                "data": [
+                    {
+                        "product_name": "Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)",
+                        "price": "\u00a313.61"
+                    },
+                    {
+                        "product_name": "Princess Between Worlds (Wide-Awake Princess #5)",
+                        "price": "\u00a313.34"
+                    },
+                    {
+                        "product_name": "Pop Gun War, Volume 1: Gift",
+                        "price": "\u00a318.97"
+                    },
+                    {
+                        "product_name": "Patience",
+                        "price": "\u00a310.16"
+                    },
+                    {
+                        "product_name": "Outcast, Vol. 1: A Darkness Surrounds Him (Outcast #1)",
+                        "price": "\u00a315.44"
+                    },
+                    {
+                        "product_name": "orange: The Complete Collection 1 (orange: The Complete Collection #1)",
+                        "price": "\u00a348.41"
+                    },
+                    {
+                        "product_name": "Online Marketing for Busy Authors: A Step-By-Step Guide",
+                        "price": "\u00a346.35"
+                    },
+                    {
+                        "product_name": "On a Midnight Clear",
+                        "price": "\u00a314.07"
+                    },
+                    {
+                        "product_name": "Obsidian (Lux #1)",
+                        "price": "\u00a314.86"
+                    },
+                    {
+                        "product_name": "My Paris Kitchen: Recipes and Stories",
+                        "price": "\u00a333.37"
+                    },
+                    {
+                        "product_name": "Masks and Shadows",
+                        "price": "\u00a356.40"
+                    },
+                    {
+                        "product_name": "Mama Tried: Traditional Italian Cooking for the Screwed, Crude, Vegan, and Tattooed",
+                        "price": "\u00a314.02"
+                    },
+                    {
+                        "product_name": "Lumberjanes, Vol. 2: Friendship to the Max (Lumberjanes #5-8)",
+                        "price": "\u00a346.91"
+                    },
+                    {
+                        "product_name": "Lumberjanes, Vol. 1: Beware the Kitten Holy (Lumberjanes #1-4)",
+                        "price": "\u00a345.61"
+                    },
+                    {
+                        "product_name": "Lumberjanes Vol. 3: A Terrible Plan (Lumberjanes #9-12)",
+                        "price": "\u00a319.92"
+                    },
+                    {
+                        "product_name": "Layered: Baking, Building, and Styling Spectacular Cakes",
+                        "price": "\u00a340.11"
+                    },
+                    {
+                        "product_name": "Judo: Seven Steps to Black Belt (an Introductory Guide for Beginners)",
+                        "price": "\u00a353.90"
+                    }
+                ],
+                "time_sec": 561.33
+            }
+        ]
+    }
+]
