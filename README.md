@@ -59,38 +59,38 @@ The benchmarking harness and interactive evaluation system operate via a closed-
 ```mermaid
 flowchart TD
     subgraph Client ["Client Presentation & Analysis Layer"]
-        A([Start: System Initialization]) --> B[React 19 Frontend Dashboard]
-        B --> C[Fetch Raw HTML Batch & Ground Truth]
+        A(["Start: System Initialization"]) --> B["React 19 Frontend Dashboard"]
+        B --> C["Fetch Raw HTML Batch & Ground Truth"]
     end
 
     subgraph Orchestrator ["Concurrency & Execution Orchestrator"]
-        C --> D{Concurrent Queue Dispatcher<br/>ThreadPoolExecutor}
-        D -->|N = 1 User| E1[Single-Thread Request Queue]
-        D -->|N = 4 Users| E2[4-Worker Parallel Queue]
-        D -->|N = 8 Users| E3[8-Worker Parallel Queue]
+        C --> D{"Concurrent Queue Dispatcher<br/>ThreadPoolExecutor"}
+        D -->|N = 1 User| E1["Single-Thread Request Queue"]
+        D -->|N = 4 Users| E2["4-Worker Parallel Queue"]
+        D -->|N = 8 Users| E3["8-Worker Parallel Queue"]
     end
 
     subgraph EdgeInference ["Edge Inference & Telemetry Engine (Jetson AGX Orin)"]
-        E1 & E2 & E3 --> F[Ollama Local Inference Server<br/>Port 11434 / REST API]
-        M[jtop Hardware Daemon] -.->|GPU %, VRAM, Watts| F
-        F --> G[Zero-Shot Generation<br/>num_ctx: 16384 | temp: 0.0]
+        E1 & E2 & E3 --> F["Ollama Local Inference Server<br/>Port 11434 / REST API"]
+        M["jtop Hardware Daemon"] -.->|GPU %, VRAM, Watts| F
+        F --> G["Zero-Shot Generation<br/>num_ctx: 16384, temp: 0.0"]
     end
 
     subgraph Verification ["Schema Verification & Grading Layer"]
-        G --> H{Regex & JSON Deserializer<br/>extract_json_from_response}
+        G --> H{"Regex & JSON Deserializer<br/>extract_json_from_response"}
         
-        H -->|Malformed JSON / Syntax Error| I1[Log Schema Incompetency<br/>Valid JSON Rate: 0% | TP=0, FN=All]
-        H -->|Process Timeout / OOM Crash| I2[Log Hardware Fault<br/>Status: Failed | TPS=0]
-        H -->|Syntactically Valid JSON Array| J[Schema Normalizer & Key Validator<br/>product_name, price]
+        H -->|Malformed JSON / Syntax Error| I1["Log Schema Incompetency<br/>Valid JSON Rate: 0% - TP=0, FN=All"]
+        H -->|Process Timeout / OOM Crash| I2["Log Hardware Fault<br/>Status: Failed - TPS=0"]
+        H -->|Syntactically Valid JSON Array| J["Schema Normalizer & Key Validator<br/>product_name, price"]
 
-        J --> K[Entity Alignment vs Ground Truth<br/>calculate_metrics]
-        K --> L[Calculate Precision, Recall, F1-Score<br/>Record TPS & Latency]
+        J --> K["Entity Alignment vs Ground Truth<br/>calculate_metrics"]
+        K --> L["Calculate Precision, Recall, F1-Score<br/>Record TPS & Latency"]
     end
 
     subgraph Reporting ["Aggregation & Interactive Analytics Layer"]
-        I1 & I2 & L --> N[Update SQLite & CSV Audit Logs]
-        N --> O[Update Performance Analytics Dashboard]
-        O --> P([End: Real-time Replay & Visualization])
+        I1 & I2 & L --> N["Update SQLite & CSV Audit Logs"]
+        N --> O["Update Performance Analytics Dashboard"]
+        O --> P(["End: Real-time Replay & Visualization"])
     end
 
     classDef client fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
