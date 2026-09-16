@@ -4,11 +4,11 @@
 [![Inference Engine: Ollama](https://img.shields.io/badge/Inference%20Engine-Ollama%20Local-black?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.com/)
 [![Frontend: React 19 + Vite](https://img.shields.io/badge/Dashboard-React%2019%20%7C%20Vite%20%7C%20Tailwind%204-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Backend: Express + SQLite](https://img.shields.io/badge/Backend-Express%20%7C%20Better--SQLite3-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![Research Lab: CeRDaS UTP](https://img.shields.io/badge/Institution-CeRDaS%20UTP%20Malaysia-003366?style=for-the-badge)](https://www.utp.edu.my/)
+[![Research Lab: CERDAS UTP](https://img.shields.io/badge/Institution-CERDAS%20UTP%20Malaysia-003366?style=for-the-badge)](https://www.utp.edu.my/)
 
 > **Engineering Whitepaper & Empirical Benchmark Suite**  
 > **Author & Lead Maintainer:** Muhammad Rafli Nugrahasyach  
-> **Affiliation:** Center of Research in Data Science (CeRDaS), Universiti Teknologi PETRONAS (UTP)  
+> **Affiliation:** Center for Resilient Data Analytics and Computational Systems (CERDAS), Universiti Teknologi PETRONAS (UTP)  
 > **Domain:** Edge Artificial Intelligence, Large Language Models (LLMs), Concurrent Inference, Structured Information Extraction (IE)
 
 ---
@@ -110,7 +110,7 @@ flowchart TD
 
 ## Edge Hardware Specifications & Experimental Setup
 
-All empirical tests were executed natively on bare-metal hardware at the CeRDaS Laboratory, Universiti Teknologi PETRONAS.
+All empirical tests were executed natively on bare-metal hardware at the CERDAS Laboratory, Universiti Teknologi PETRONAS.
 
 ### 1. Hardware Architecture (NVIDIA Jetson AGX Orin 64GB)
 
@@ -433,12 +433,12 @@ npm run dev
 If you utilize this benchmark suite, empirical telemetry dataset, or architectural findings in your academic research or edge AI deployment, please cite this work as follows:
 
 ```bibtex
-@techreport{nugrahasyach2024edgeextraction,
+@techreport{nugrahasyach2026edgeextraction,
   title       = {Evaluating LLM Performance for Concurrent HTML Data Extraction on Edge Devices},
-  author      = {Nugrahasyach, Muhammad Rafli and CeRDaS Research Team},
-  institution = {Center of Research in Data Science (CeRDaS), Universiti Teknologi PETRONAS},
+  author      = {Nugrahasyach, Muhammad Rafli and CERDAS Research Team},
+  institution = {Center for Resilient Data Analytics and Computational Systems (CERDAS), Universiti Teknologi PETRONAS},
   address     = {Seri Iskandar, Perak, Malaysia},
-  year        = {2024},
+  year        = {2026},
   month       = {September},
   type        = {Engineering Research Whitepaper},
   url         = {https://github.com/raflinugrahasyach/cerdas-utp-intern}
@@ -449,6 +449,6 @@ If you utilize this benchmark suite, empirical telemetry dataset, or architectur
 
 ## License & Acknowledgements
 
-This project was developed during the Advanced Edge AI Research Internship at the **Center of Research in Data Science (CeRDaS), Universiti Teknologi PETRONAS (UTP)**. 
+This project was developed during the Advanced Edge AI Research Internship at the **Center for Resilient Data Analytics and Computational Systems (CERDAS), Universiti Teknologi PETRONAS (UTP)**. 
 
-Distributed under the **MIT License**. Copyright &copy; 2024 Muhammad Rafli Nugrahasyach & CeRDaS UTP.
+Distributed under the **MIT License**. Copyright &copy; 2026 Muhammad Rafli Nugrahasyach & CERDAS UTP.
